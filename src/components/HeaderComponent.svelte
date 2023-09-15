@@ -1,12 +1,14 @@
-<div class="header">
-  <a class="plainLink" href="/">
+<div class="header" data-testid="headerComponent">
+  <a class="plainLink" href="/" data-testid="homeLink">
     <h1>NBA Rotations</h1>
   </a>
-  <div class="links">
+  <div class="links" data-testid="headerLinks">
     <!-- TODO: add about page -->
-    <a href="/about">About</a>
-    <a href="https://github.com/otislambert/bball-rotations" target="_blank"
-      >Github</a
+    <a href="/about" data-testid="aboutLink">About</a>
+    <a
+      href="https://github.com/otislambert/bball-rotations"
+      target="_blank"
+      data-testid="githubLink">Github</a
     >
   </div>
 </div>
