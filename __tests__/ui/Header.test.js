@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/svelte";
 import HeaderComponent from "../../src/components/HeaderComponent.svelte";
-import { afterEach } from "vitest";
 
 describe("Header Rendering", () => {
   it("Renders the header", () => {
