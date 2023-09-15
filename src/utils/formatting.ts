@@ -1,5 +1,5 @@
-function formatGameDate(date: string): string {
+function formatReadableDate(date: string): string {
   return date.split(" ")[0];
 }
 
-export { formatGameDate };
+export { formatReadableDate };

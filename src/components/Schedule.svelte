@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { LeagueSchedule } from "../types/nbacdn";
+  import { formatReadableDate } from "../utils/formatting";
 
   export let schedule: LeagueSchedule;
 
@@ -13,9 +14,9 @@
   <div class="dateList" data-testid="dateList">
     {#each dates as date}
       <a
-        href={`/gamedates/${date.gameDate.split(" ")}`}
+        href={`/gamedates/${formatReadableDate(date.gameDate)}`}
         class="gameDate"
-        data-testid="gameDate">{date.gameDate.split(" ")[0]}</a
+        data-testid="gameDate">{formatReadableDate(date.gameDate)}</a
       >
     {/each}
   </div>
