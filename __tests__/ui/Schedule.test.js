@@ -106,3 +106,21 @@ describe("Schedule Node Names", () => {
     expect(screen.getByTestId("dateList").nodeName).toBe("DIV");
   });
 });
+
+describe("Game Date Links", () => {
+  let schedule;
+
+  beforeAll(async () => {
+    schedule = await fetchSchedule();
+  });
+
+  it("has the correct url", () => {
+    render(Schedule, { props: { schedule: schedule } });
+    const dates = screen.getAllByTestId("gameDate");
+
+    expect(dates[0]).toHaveAttribute("href", "/gamedates/10052023");
+    expect(dates[1]).toHaveAttribute("href", "/gamedates/10072023");
+    expect(dates[2]).toHaveAttribute("href", "/gamedates/10082023");
+    expect(dates[3]).toHaveAttribute("href", "/gamedates/10092023");
+  });
+});

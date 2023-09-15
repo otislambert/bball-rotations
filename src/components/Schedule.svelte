@@ -1,10 +1,8 @@
 <script lang="ts">
   import type { LeagueSchedule } from "../types/nbacdn";
-  import { formatReadableDate } from "../utils/formatting";
+  import { formatReadableDate, formatPlainDate } from "../utils/formatting";
 
   export let schedule: LeagueSchedule;
-
-  console.log(schedule);
 
   const dates = schedule.gameDates;
 </script>
@@ -14,7 +12,7 @@
   <div class="dateList" data-testid="dateList">
     {#each dates as date}
       <a
-        href={`/gamedates/${formatReadableDate(date.gameDate)}`}
+        href={`/gamedates/${formatPlainDate(date.gameDate)}`}
         class="gameDate"
         data-testid="gameDate">{formatReadableDate(date.gameDate)}</a
       >
