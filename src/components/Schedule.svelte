@@ -1,15 +1,9 @@
 <script lang="ts">
-  import { fetchSchedule } from "../utils/nbaDataFetching";
-  import { onMount } from "svelte";
+  export let schedule;
 
-  let schedule;
-
-  onMount(() => {
-    const s = fetchSchedule();
-
-    schedule = s;
-  });
+  console.log(schedule);
 </script>
 
-<div>Schedule</div>
-<div />
+<div>
+  <h2>Schedule</h2>
+</div>
