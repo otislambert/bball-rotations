@@ -91,7 +91,7 @@ describe("Schedule Node Names", () => {
     const dates = screen.getAllByTestId("gameDate");
 
     dates.forEach((date) => {
-      expect(date.nodeName).toBe("BUTTON");
+      expect(date.nodeName).toBe("A");
     });
   });
 

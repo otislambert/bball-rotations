@@ -3,6 +3,8 @@
 
   export let schedule: LeagueSchedule;
 
+  console.log(schedule);
+
   const dates = schedule.gameDates;
 </script>
 
@@ -10,8 +12,10 @@
   <h2>Schedule</h2>
   <div class="dateList" data-testid="dateList">
     {#each dates as date}
-      <button class="gameDate" data-testid="gameDate"
-        >{date.gameDate.split(" ")[0]}</button
+      <a
+        href={`/gamedates/${date.gameDate.split(" ")}`}
+        class="gameDate"
+        data-testid="gameDate">{date.gameDate.split(" ")[0]}</a
       >
     {/each}
   </div>
@@ -30,6 +34,8 @@
       border-radius: 5px;
       padding: 0.5em;
       transition: 200ms ease-in-out;
+      color: inherit;
+      text-decoration: none;
     }
 
     .gameDate:hover {
