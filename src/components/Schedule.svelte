@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { LeagueSchedule } from "../types/nbacdn";
-  import { formatReadableDate, formatPlainDate } from "../utils/formatting";
+  import { formatReadableDate, createGameDateURL } from "../utils/formatting";
 
   export let schedule: LeagueSchedule;
 
@@ -12,7 +12,7 @@
   <div class="dateList" data-testid="dateList">
     {#each dates as date}
       <a
-        href={`/gamedates/${formatPlainDate(date.gameDate)}`}
+        href={createGameDateURL(date.gameDate)}
         class="gameDate"
         data-testid="gameDate">{formatReadableDate(date.gameDate)}</a
       >

@@ -118,9 +118,9 @@ describe("Game Date Links", () => {
     render(Schedule, { props: { schedule: schedule } });
     const dates = screen.getAllByTestId("gameDate");
 
-    expect(dates[0]).toHaveAttribute("href", "/gamedates/10052023");
-    expect(dates[1]).toHaveAttribute("href", "/gamedates/10072023");
-    expect(dates[2]).toHaveAttribute("href", "/gamedates/10082023");
-    expect(dates[3]).toHaveAttribute("href", "/gamedates/10092023");
+    expect(dates[0]).toHaveAttribute("href", "/gamedate/10052023");
+    expect(dates[1]).toHaveAttribute("href", "/gamedate/10072023");
+    expect(dates[2]).toHaveAttribute("href", "/gamedate/10082023");
+    expect(dates[3]).toHaveAttribute("href", "/gamedate/10092023");
   });
 });

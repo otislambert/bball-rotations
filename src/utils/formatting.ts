@@ -5,4 +5,9 @@ function formatReadableDate(date: string): string {
 function formatPlainDate(date: string): string {
   return formatReadableDate(date).split("/").join("");
 }
-export { formatReadableDate, formatPlainDate };
+
+function createGameDateURL(date: string): string {
+  return "/gamedate/" + formatPlainDate(date);
+}
+
+export { formatReadableDate, formatPlainDate, createGameDateURL };
