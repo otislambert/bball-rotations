@@ -2,9 +2,6 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/svelte";
 import Schedule from "../../src/components/Schedule.svelte";
 import { fetchSchedule } from "../../src/utils/nbaDataFetching";
-import { beforeAll } from "vitest";
-import { expect } from "vitest";
-import { writable } from "svelte/store";
 
 describe("Schedule Rendering", () => {
   let schedule;
