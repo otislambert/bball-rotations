@@ -390,6 +390,7 @@ export interface Broadcaster {
   broadcasterScope: string;
   broadcasterMedia: "radio" | "tv";
   broadcasterId: number;
+  broadcasterTeamId?: number;
   broadcasterDisplay: string;
   broadcasterAbbreviation: string;
   tapeDelayComments: string;

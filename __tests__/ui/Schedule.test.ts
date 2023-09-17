@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/svelte";
 import Schedule from "../../src/components/Schedule.svelte";
 import { fetchSchedule } from "../../src/utils/nbaDataFetching";
+import { LeagueSchedule } from "../../src/types/nbacdn";
 
 describe("Schedule Rendering", () => {
   let schedule;
@@ -105,7 +106,7 @@ describe("Schedule Node Names", () => {
 });
 
 describe("Game Date Links", () => {
-  let schedule;
+  let schedule: LeagueSchedule;
 
   beforeAll(async () => {
     schedule = await fetchSchedule();
