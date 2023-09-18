@@ -1,7 +1,7 @@
 <script lang="ts">
-  import "../styles/global.scss";
-  import type { LeagueSchedule } from "../types/nbacdn";
-  import Schedule from "../components/Schedule.svelte";
+  import "$styles/global.scss";
+  import Schedule from "$components/Schedule.svelte";
+  import type { LeagueSchedule } from "$types/nbacdn";
 
   interface PageData {
     schedule: LeagueSchedule;

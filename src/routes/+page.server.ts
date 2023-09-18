@@ -1,4 +1,4 @@
-import { fetchSchedule } from "../utils/nbaDataFetching";
+import { fetchSchedule } from "$lib/server/nbaDataFetching";
 
 export const load = async () => {
   const schedule = await fetchSchedule();

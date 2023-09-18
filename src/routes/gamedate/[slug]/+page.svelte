@@ -2,8 +2,8 @@
   // TODO: add +layout.svelte page
   import "../../../styles/global.scss";
   import type { PageData } from "./$types";
-  import { formatReadableDate } from "../../../utils/formatting";
   import GameCard from "../../../components/GameCard.svelte";
+  import { formatReadableDate } from "$lib/formatting";
 
   export let data: PageData;
 

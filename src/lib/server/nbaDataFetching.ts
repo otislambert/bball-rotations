@@ -1,4 +1,4 @@
-import type { LeagueSchedule } from "../types/nbacdn";
+import type { LeagueSchedule } from "$types/nbacdn";
 
 async function fetchSchedule(): Promise<LeagueSchedule> {
   const url =
