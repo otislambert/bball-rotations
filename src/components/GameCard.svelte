@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ScheduleGame } from "../types/nbacdn";
   import GameCardTeam from "./GameCardTeam.svelte";
+  import type { ScheduleGame } from "$types/nbacdn";
 
   export let game: ScheduleGame;
 

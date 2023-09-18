@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/svelte";
-import Schedule from "../../src/components/Schedule.svelte";
-import { fetchSchedule } from "../../src/utils/nbaDataFetching";
-import { LeagueSchedule } from "../../src/types/nbacdn";
+import Schedule from "$components/Schedule.svelte";
+import { fetchSchedule } from "$lib/server/nbaDataFetching";
+import { LeagueSchedule } from "$types/nbacdn";
 
 describe("Schedule Rendering", () => {
   let schedule;
@@ -71,7 +71,7 @@ describe("Schedule Classes", () => {
 });
 
 describe("Schedule Node Names", () => {
-  let schedule;
+  let schedule: LeagueSchedule;
 
   beforeAll(async () => {
     schedule = await fetchSchedule();

@@ -1,4 +1,4 @@
-import { parseURLDate } from "../../src/utils/parsing";
+import { parseURLDate } from "$lib/parsing";
 
 describe("parseUrlDate", () => {
   it("Throws an error if a string has less than eight characters", () => {

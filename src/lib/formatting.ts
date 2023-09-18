@@ -1,5 +1,3 @@
-// TODO: move utils to `/lib` folder
-
 function formatReadableDate(date: string): string {
   return date.split(" ")[0];
 }

@@ -2,7 +2,7 @@ import {
   formatReadableDate,
   formatPlainDate,
   createGameDateURL,
-} from "../../src/utils/formatting";
+} from "$lib/formatting";
 
 describe("formatGameDate", () => {
   it("returns a value", () => {
