@@ -1,4 +1,6 @@
-async function fetchSchedule() {
+import type { LeagueSchedule } from "../types/nbacdn";
+
+async function fetchSchedule(): Promise<LeagueSchedule> {
   const url =
     "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json";
 
