@@ -23,8 +23,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install pnpm
-      - run: npm i pnpm@latest -g
+        run: npm i pnpm@latest -g
       - name: Install dependencies
-      - run: pnpm i --frozen-lockfile
+        run: pnpm i --frozen-lockfile
       - name: Test
-      - run: pnpm run test:all
+        run: pnpm run test:all
