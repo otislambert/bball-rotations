@@ -6,28 +6,25 @@
 </script>
 
 <div class="container">
-  <p>
-    {boxScore.arena.arenaCity}, {boxScore.arena.arenaState} - {boxScore.arena
-      .arenaName} - {format(
-      new Date(boxScore.gameTimeHome),
-      "MM/dd/yyyy hh:mm"
-    )}
-  </p>
-
-  <div class="teamsContainer">
-    <div class="team">
-      <span class="score">{boxScore.awayTeam.score}</span>
-      <span class="name"
-        >{boxScore.awayTeam.teamCity} {boxScore.awayTeam.teamName}</span
-      >
-    </div>
-    <span> - </span>
-    <div class="team">
-      <span class="score">{boxScore.homeTeam.score}</span>
-      <span class="name"
-        >{boxScore.homeTeam.teamCity} {boxScore.awayTeam.teamName}</span
-      >
-    </div>
+  <div class="team">
+    <span class="score">{boxScore.awayTeam.score}</span>
+    <span class="name"
+      >{boxScore.awayTeam.teamCity} {boxScore.awayTeam.teamName}</span
+    >
+  </div>
+  <div class="arena flex column">
+    <span>
+      {boxScore.arena.arenaCity}, {boxScore.arena.arenaState}
+    </span>
+    <span>{boxScore.arena.arenaName} </span><span
+      >{format(new Date(boxScore.gameTimeHome), "MM/dd/yyyy hh:mm")}
+    </span>
+  </div>
+  <div class="team">
+    <span class="score">{boxScore.homeTeam.score}</span>
+    <span class="name"
+      >{boxScore.homeTeam.teamCity} {boxScore.awayTeam.teamName}</span
+    >
   </div>
 </div>
 
@@ -35,33 +32,31 @@
   .container {
     margin: 1em 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1em;
     align-items: center;
+    justify-content: space-around;
 
-    p {
+    span {
       margin: 0;
       padding: 0;
       line-height: 1em;
     }
 
-    .teamsContainer {
+    .team {
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      flex-direction: column;
       align-items: center;
-      min-width: 50%;
 
-      .team {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .score {
-          font-size: 8em;
-          font-weight: bold;
-        }
+      .score {
+        font-size: 8em;
+        font-weight: bold;
       }
+    }
+
+    .arena {
+      align-items: center;
+      gap: 1em;
     }
   }
 </style>
