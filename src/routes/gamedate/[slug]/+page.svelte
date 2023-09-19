@@ -1,6 +1,5 @@
 <script lang="ts">
   // TODO: add +layout.svelte page
-  import "../../../styles/global.scss";
   import type { PageData } from "./$types";
   import GameCard from "../../../components/GameCard.svelte";
   import { formatReadableDate } from "$lib/formatting";
