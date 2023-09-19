@@ -1,6 +1,5 @@
-<!-- TODO: Add better text to about page -->
+<script lang="ts">
+  import About from "$components/About.svelte";
+</script>
 
-<div>
-  <h2>About</h2>
-  <p>Web app for showing NBA Rotation Data.</p>
-</div>
+<About />
