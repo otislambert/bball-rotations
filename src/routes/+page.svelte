@@ -11,4 +11,7 @@
   const schedule = data.schedule;
 </script>
 
+<div>
+  <a href="/game/0022200052">View a completed game.</a>
+</div>
 <Schedule {schedule} />

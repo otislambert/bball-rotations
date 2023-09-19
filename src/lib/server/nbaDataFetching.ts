@@ -1,4 +1,4 @@
-import type { LeagueSchedule } from "$types/nbacdn";
+import type { LeagueSchedule, BoxScore } from "$types/nbacdn";
 
 async function fetchSchedule(): Promise<LeagueSchedule> {
   const url =
@@ -13,4 +13,14 @@ async function fetchSchedule(): Promise<LeagueSchedule> {
   return schedule;
 }
 
-export { fetchSchedule };
+async function fetchBoxScore(gameId: string): Promise<BoxScore> {
+  const url = `https://cdn.nba.com/static/json/liveData/boxscore/boxscore_${gameId}.json`;
+
+  const res = await fetch(url, { cache: "no-cache" });
+
+  const data = await res.json();
+
+  return data.game;
+}
+
+export { fetchSchedule, fetchBoxScore };
