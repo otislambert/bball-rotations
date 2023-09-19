@@ -1,18 +1,21 @@
 <script lang="ts">
+  import type { BoxScore } from "$types/nbacdn";
+  import GamePageHeader from "$components/GamePageHeader.svelte";
+
   interface PageLoadData {
     props: {
       gameId: string;
+      boxScore: BoxScore;
     };
   }
 
   export let data: PageLoadData;
 
-  const { gameId } = data.props;
+  const { gameId, boxScore } = data.props;
 </script>
 
-<div>
-  <h2>Game Page</h2>
-  <p>{gameId}</p>
-</div>
+{#if boxScore}
+  <GamePageHeader {boxScore} />
+{/if}
 
 <style lang="scss"></style>
