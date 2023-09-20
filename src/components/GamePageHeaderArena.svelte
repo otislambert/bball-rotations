@@ -20,6 +20,7 @@
 
 <style lang="scss">
   .arena {
+    margin: 2em;
     align-items: center;
     gap: 1em;
     border: 1px solid black;

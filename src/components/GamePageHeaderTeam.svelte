@@ -74,10 +74,11 @@
 
       .label {
         font-weight: light;
+        font-size: 0.75em;
       }
 
       .value {
-        font-size: 4em;
+        font-size: 2em;
         line-height: 1em;
       }
     }

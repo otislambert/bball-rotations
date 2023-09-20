@@ -11,7 +11,7 @@
 
   export let data: PageLoadData;
 
-  const { gameId, boxScore } = data.props;
+  const boxScore = data.props.boxScore;
 </script>
 
 <main>

@@ -18,6 +18,6 @@
     max-width: 80%;
     min-width: 50%;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
   }
 </style>
