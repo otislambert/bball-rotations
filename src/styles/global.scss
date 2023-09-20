@@ -10,6 +10,8 @@ html {
 * {
   box-sizing: border-box;
   font-smooth: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Utility Classes

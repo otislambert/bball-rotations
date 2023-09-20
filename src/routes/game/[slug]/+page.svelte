@@ -14,8 +14,15 @@
   const { gameId, boxScore } = data.props;
 </script>
 
-{#if boxScore}
-  <GamePageHeader {boxScore} />
-{/if}
+<main>
+  {#if boxScore}
+    <GamePageHeader {boxScore} />
+  {/if}
+</main>
 
-<style lang="scss"></style>
+<style lang="scss">
+  main {
+    display: flex;
+    justify-content: center;
+  }
+</style>
