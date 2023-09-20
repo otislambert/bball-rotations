@@ -123,4 +123,47 @@ describe("Game Page Header Team", () => {
       ]);
     });
   });
+
+  describe("Stats", () => {
+    const team = mockBS.awayTeam;
+    describe("Rendering", () => {
+      beforeEach(() => {
+        render(GamePageHeaderTeam, { props: { team } });
+      });
+
+      it("renders a stat container", () => {
+        expect(screen.getByTestId("gph-team-stats-container")).toBeDefined();
+      });
+      it("renders ts%", () => {
+        expect(screen.getByTestId("gph-team-stats-ts")).toBeDefined();
+      });
+      it("renders steals", () => {
+        expect(screen.getByTestId("gph-team-stats-steals")).toBeDefined();
+      });
+      it("renders blocks", () => {
+        expect(screen.getByTestId("gph-team-stats-fga")).toBeDefined();
+      });
+    });
+
+    describe("Text", () => {
+      beforeEach(() => {
+        render(GamePageHeaderTeam, { props: { team } });
+      });
+
+      it("has the correct ts %", () => {
+        const parent = screen.getByTestId("gph-team-stats-ts");
+        expect(parent.lastChild?.textContent).toBe("50%");
+      });
+      it("has the correct steals num", () => {
+        const parent = screen.getByTestId("gph-team-stats-steals");
+        expect(parent.lastChild?.textContent).toBe("6");
+      });
+      it("Has the correct fga num", () => {
+        const parent = screen.getByTestId("gph-team-stats-fga");
+        expect(parent.lastChild?.textContent).toBe("88");
+      });
+    });
+
+    // TODO: add tests for styling
+  });
 });
