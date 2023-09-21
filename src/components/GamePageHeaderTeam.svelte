@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { formatPercentage } from "$lib/statFormatting";
   import type { Team } from "$types/nbacdn";
 
   export let team: Team;
@@ -16,10 +17,9 @@
     {#if team.statistics?.trueShootingPercentage}
       <div data-testid="gph-team-stats-ts" class="stat">
         <span class="label">True Shooting</span>
-        <span class="value"
-          >{Number(team.statistics.trueShootingPercentage.toFixed(2)) *
-            100}%</span
-        >
+        <span class="value">
+          {formatPercentage(team.statistics?.trueShootingPercentage)}
+        </span>
       </div>
     {/if}
 

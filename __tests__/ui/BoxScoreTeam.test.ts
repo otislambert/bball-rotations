@@ -6,21 +6,48 @@ import BoxScoreTeam from "$components/boxscoreTeam.svelte";
 const team = mockBS.homeTeam;
 
 describe("Box Score Team Rendering", () => {
-  beforeEach(() => {
-    render(BoxScoreTeam, { props: { team } });
-  });
+  describe("Box Score Elements", () => {
+    beforeEach(() => {
+      render(BoxScoreTeam, { props: { team } });
+    });
 
-  it("Renders the team name header", () => {
-    expect(screen.getByTestId("bs-team-header-text")).toBeDefined();
-    expect(screen.getByTestId("bs-team-header-text").textContent).toBe(
-      "Washington Wizards - 120"
-    );
-  });
-  it("Renders the team name header as h3", () => {
-    expect(screen.getByTestId("bs-team-header-text").nodeName).toBe("H3");
-  });
+    it("Renders the team name header", () => {
+      expect(screen.getByTestId("bs-team-header-text")).toBeDefined();
+      expect(screen.getByTestId("bs-team-header-text").textContent).toBe(
+        "Washington Wizards - 120"
+      );
+    });
+    it("Renders the team name header as h3", () => {
+      expect(screen.getByTestId("bs-team-header-text").nodeName).toBe("H3");
+    });
 
-  it("renders a team table div", () => {
-    expect(screen.getByTestId("bs-team-table")).toBeDefined();
+    it("renders a team table div", () => {
+      expect(screen.getByTestId("bs-team-table")).toBeDefined();
+    });
+  });
+  describe("Box Score Team Table", () => {
+    beforeEach(() => {
+      render(BoxScoreTeam, { props: { team } });
+    });
+
+    it("is rendered as a table ele", () => {
+      expect(screen.getByTestId("bs-team-table").nodeName).toBe("TABLE");
+    });
+    it("has a thead element", () => {
+      const head = screen.getByTestId("bs-team-table-head");
+      expect(head).toBeDefined();
+      expect(head.nodeName).toBe("THEAD");
+    });
+    it("has a table body", () => {
+      const body = screen.getByTestId("bs-team-table-body");
+      expect(body).toBeDefined();
+      expect(body.nodeName).toBe("TBODY");
+    });
+    it("body and head have same amount of columns", () => {
+      const bodyRow = screen.getAllByTestId("bs-team-table-body-row")[0];
+      const headRow = screen.getByTestId("bs-team-table-head-row");
+
+      expect(headRow.children.length).toBe(bodyRow.children.length);
+    });
   });
 });

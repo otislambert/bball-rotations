@@ -1,7 +1,10 @@
 <script lang="ts">
+  // Imports
   import { getActivePlayers } from "$lib/boxscoreParsing";
+  import { format2dec, formatPercentage } from "$lib/statFormatting";
   import type { Team } from "$types/nbacdn";
 
+  // Props
   export let team: Team;
 
   const activePlayers = getActivePlayers(team.players!);
@@ -14,52 +17,60 @@
       {team.teamName} - {team.score}
     </h3>
   </div>
-  <div data-testid="bs-team-table" class="table">
-    <div class="flex row header-line" data-testid="bs-table-header">
-      <p>Name</p>
-    </div>
-    {#each activePlayers as player}
-      <div class="flex row player-line">
-        <p class="name">{player.nameI}</p>
-        <p class="points">{player.statistics.points}</p>
-        <p class="minutes">{player.statistics.minutes}</p>
-        <p class="steals">{player.statistics.steals}</p>
-        <p class="blocks">{player.statistics.blocks}</p>
-      </div>
-    {/each}
-  </div>
+  <table data-testid="bs-team-table">
+    <thead data-testid="bs-team-table-head">
+      <tr data-testid="bs-team-table-head-row">
+        <th>Name</th>
+        <th>Minutes</th>
+        <th>Points</th>
+        <th>Steals</th>
+        <th>Blocks</th>
+        <th>tRb</th>
+        <th>oRb</th>
+        <th>dRb</th>
+        <th>FG</th>
+        <th>FGA</th>
+        <th>FG%</th>
+        <th>3P</th>
+        <th>3PA</th>
+        <th>3P%</th>
+      </tr>
+    </thead>
+    <tbody data-testid="bs-team-table-body">
+      {#each activePlayers as player}
+        <!-- TODO: handle players with no minutes -->
+        <tr data-testid="bs-team-table-body-row">
+          <td>{player.nameI}</td>
+          <!-- TODO: parse player minutes -->
+          <td>{player.statistics.minutes}</td>
+          <td>{player.statistics.points}</td>
+          <td>{player.statistics.steals}</td>
+          <td>{player.statistics.blocks}</td>
+          <td>{player.statistics.reboundsTotal}</td>
+          <td>{player.statistics.reboundsOffensive}</td>
+          <td>{player.statistics.reboundsDefensive}</td>
+          <td>{player.statistics.fieldGoalsMade}</td>
+          <td>{player.statistics.fieldGoalsAttempted}</td>
+          <td>{formatPercentage(player.statistics.fieldGoalsPercentage)}</td>
+          <td>{player.statistics.threePointersMade}</td>
+          <td>{player.statistics.threePointersAttempted}</td>
+          <td>{formatPercentage(player.statistics.threePointersPercentage)}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
 </div>
 
 <style lang="scss">
   .header {
     h3 {
       font-weight: 400;
+      text-align: right;
     }
   }
 
-  .table {
-    border: 1px solid black;
-
-    .header-line {
-      border-bottom: 2px solid black;
-
-      p {
-        margin: 0;
-        line-height: 1.5em;
-        font-weight: bold;
-      }
-    }
-
-    .player-line {
-      height: 1em;
-      border-bottom: 1px solid gray;
-      justify-content: space-between;
-
-      p {
-        font-size: 0.95em;
-        line-height: 1em;
-        margin-top: 0.05em;
-      }
-    }
+  td,
+  th {
+    text-align: right;
   }
 </style>

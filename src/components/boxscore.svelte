@@ -11,8 +11,10 @@
   <div class="header">
     <h2 data-testid="bs-header-text">Boxscore</h2>
   </div>
-  <BoxscoreTeam team={awayTeam} />
-  <BoxscoreTeam team={homeTeam} />
+  <div class="flex column boxscores">
+    <BoxscoreTeam team={awayTeam} />
+    <BoxscoreTeam team={homeTeam} />
+  </div>
 </div>
 
 <style lang="scss">
@@ -30,9 +32,12 @@
       h2 {
         line-height: 1em;
         margin: 0;
-        font-weight: 200;
         font-size: 2em;
       }
+    }
+
+    .boxscores {
+      gap: 3em;
     }
   }
 </style>

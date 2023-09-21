@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { LeagueSchedule } from "$types/nbacdn";
-  import { formatReadableDate, createGameDateURL } from "$lib/formatting";
+  import { formatReadableDate, createGameDateURL } from "$lib/dateFormatting";
 
   export let schedule: LeagueSchedule;
 
