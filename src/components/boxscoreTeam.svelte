@@ -1,7 +1,7 @@
 <script lang="ts">
   // Imports
   import { getActivePlayers } from "$lib/boxscoreParsing";
-  import { format2dec, formatPercentage } from "$lib/statFormatting";
+  import { formatPercentage } from "$lib/statFormatting";
   import type { Team } from "$types/nbacdn";
 
   // Props
@@ -9,6 +9,8 @@
 
   const activePlayers = getActivePlayers(team.players!);
 </script>
+
+<!-- TODO: hide/shrink boxscore -->
 
 <div data-testid="bs-team-component" class="flex column container">
   <div class="header">
