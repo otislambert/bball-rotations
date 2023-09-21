@@ -1,7 +1,7 @@
 <script lang="ts">
   // Imports
   import { getActivePlayers } from "$lib/boxscoreParsing";
-  import { formatPercentage } from "$lib/statFormatting";
+  import { formatPercentage, formatMinutes } from "$lib/statFormatting";
   import type { Team } from "$types/nbacdn";
 
   // Props
@@ -41,10 +41,11 @@
     <tbody data-testid="bs-team-table-body">
       {#each activePlayers as player}
         <!-- TODO: handle players with no minutes -->
-        <tr data-testid="bs-team-table-body-row">
+        <tr data-testid="bs-player-row">
           <td>{player.nameI}</td>
-          <!-- TODO: parse player minutes -->
-          <td>{player.statistics.minutes}</td>
+          <td data-testid="bs-player-minutes"
+            >{formatMinutes(player.statistics.minutes)}</td
+          >
           <td>{player.statistics.points}</td>
           <td>{player.statistics.steals}</td>
           <td>{player.statistics.blocks}</td>

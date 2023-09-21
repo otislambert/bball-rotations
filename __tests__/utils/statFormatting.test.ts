@@ -1,4 +1,10 @@
-import { format2dec, formatPercentage } from "$lib/statFormatting.ts";
+import {
+  formatMinutes,
+  getMinutes,
+  getSeconds,
+  format2dec,
+  formatPercentage,
+} from "$lib/statFormatting.ts";
 
 describe("format2dec", () => {
   it("returns a number", () => {
@@ -50,6 +56,11 @@ describe("formatPercentage", () => {
 
     expect(Number(s)).not.toBeNaN();
   });
+  it("matches a percentage regex", () => {
+    expect(formatPercentage(0.5)).toMatch(/[0-9]+%/);
+    expect(formatPercentage(0.55)).toMatch(/[0-9]+%/);
+    expect(formatPercentage(0.98)).toMatch(/[0-9]+%/);
+  });
   it("throws an error when a string is given", () => {
     expect(() => formatPercentage("testing")).toThrow();
   });
@@ -60,5 +71,41 @@ describe("formatPercentage", () => {
     expect(formatPercentage(0.223)).toBe("22%");
     expect(formatPercentage(0.889)).toBe("89%");
     expect(formatPercentage(0.5)).toBe("50%");
+  });
+});
+
+describe("getMinutes", () => {
+  it("returns a string value", () => {
+    expectTypeOf(getMinutes("PT26M50.00S")).toMatchTypeOf<string>();
+  });
+  it("matches the regex", () => {
+    expect(getMinutes("PT26M50.00S")).toMatch(/[0-9]/);
+  });
+  it("has the correct numbers", () => {
+    expect(getMinutes("PT26M50.00S")).toBe("26");
+  });
+});
+
+describe("getSeconds", () => {
+  it("returns a string value", () => {
+    expectTypeOf(getSeconds("PT26M50.00S")).toMatchTypeOf<string>();
+  });
+  it("matches the regex", () => {
+    expect(getSeconds("PT26M50.00S")).toMatch(/[0-9]/);
+  });
+  it("has the correct numbers", () => {
+    expect(getSeconds("PT26M50.00S")).toBe("50");
+  });
+});
+
+describe("formatMinutes", () => {
+  it("returns a string value", () => {
+    expectTypeOf(formatMinutes("PT26M50.00S")).toMatchTypeOf<string>();
+  });
+  it("matches the regex", () => {
+    expect(formatMinutes("PT26M50.00S")).toMatch(/[0-9]+:[0-9]+/);
+  });
+  it("returns the correct value", () => {
+    expect(formatMinutes("PT26M50.00S")).toBe("26:50");
   });
 });

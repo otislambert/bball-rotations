@@ -44,10 +44,22 @@ describe("Box Score Team Rendering", () => {
       expect(body.nodeName).toBe("TBODY");
     });
     it("body and head have same amount of columns", () => {
-      const bodyRow = screen.getAllByTestId("bs-team-table-body-row")[0];
+      const bodyRow = screen.getAllByTestId("bs-player-row")[0];
       const headRow = screen.getByTestId("bs-team-table-head-row");
 
       expect(headRow.children.length).toBe(bodyRow.children.length);
+    });
+  });
+
+  describe("Box Score Stat Formatting", () => {
+    beforeEach(() => {
+      render(BoxScoreTeam, { props: { team } });
+    });
+
+    it("correctly formats player minutes", () => {
+      expect(screen.getAllByTestId("bs-player-minutes")[0].textContent).toMatch(
+        /[0-9]+:[0-9]+/
+      );
     });
   });
 });
