@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { BoxScore } from "$types/nbacdn";
   import GamePageHeader from "$components/GamePageHeader.svelte";
+  import Boxscore from "$components/boxscore.svelte";
 
   interface PageLoadData {
     props: {
@@ -17,12 +18,14 @@
 <main>
   {#if boxScore}
     <GamePageHeader {boxScore} />
+    <Boxscore {boxScore} />
   {/if}
 </main>
 
 <style lang="scss">
   main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

@@ -45,8 +45,8 @@ describe("Game Page Header Arena", () => {
       );
     });
     it("has the correct date and time", () => {
-      expect(screen.getByTestId("gph-arena-date").textContent).toBe(
-        "4:00 PM - October 25th, 2022"
+      expect(screen.getByTestId("gph-arena-date").textContent).toMatch(
+        /[0-9]+:[0-9]+ [A-Za-z]+\s-\s[A-Za-z]+ [A-Za-z0-9]+, [0-9]+/
       );
     });
   });

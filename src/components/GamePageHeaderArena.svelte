@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { Arena } from "$types/nbacdn";
-  import { format } from "date-fns";
-
+  import { formatLongDate } from "$lib/dateFormatting";
   export let arena: Arena;
   export let gameTimeHome: string;
 </script>
@@ -13,8 +12,8 @@
     </span>
     <span class="name" data-testid="gph-arena-name">{arena.arenaName} </span>
   </div>
-  <span class="date" data-testid="gph-arena-date"
-    >{format(new Date(gameTimeHome), "h:mm a - MMMM do, y")}
+  <span class="date" data-testid="gph-arena-date">
+    {formatLongDate(gameTimeHome)}
   </span>
 </div>
 

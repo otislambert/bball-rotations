@@ -2,7 +2,7 @@ import {
   formatReadableDate,
   formatPlainDate,
   createGameDateURL,
-} from "$lib/formatting";
+} from "$lib/dateFormatting.ts";
 
 describe("formatGameDate", () => {
   it("returns a value", () => {
