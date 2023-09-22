@@ -3,7 +3,7 @@ import { fetchSchedule } from "$lib/server/nbaDataFetching";
 import type { GameDate } from "$types/nbacdn";
 
 // TODO: fix Params types
-import type { Params } from "../../../types/types";
+import type { Params } from "$types/types";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }: Params) => {
