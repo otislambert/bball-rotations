@@ -1,9 +1,12 @@
 <script lang="ts">
+  // imports
   import BoxscoreTeam from "./boxscoreTeam.svelte";
   import type { BoxScore } from "$types/nbacdn";
 
+  // props
   export let boxScore: BoxScore;
 
+  // destructures teams from boxscore
   const { awayTeam, homeTeam } = boxScore;
 </script>
 

@@ -1,11 +1,9 @@
 import type { ScheduleGame } from "./nbacdn";
 
 export interface Params {
-  params: Parameters;
-}
-
-export interface Parameters {
-  slug: string;
+  params: {
+    slug: string;
+  };
 }
 
 export interface GameDatePageData {
@@ -13,4 +11,28 @@ export interface GameDatePageData {
     date: string;
     games?: ScheduleGame;
   };
+}
+
+export interface GPOData {
+  sort: SortValues;
+  asc: boolean;
+  showInactive: boolean;
+  expanded: boolean;
+}
+
+export enum SortValues {
+  default,
+  minutes,
+  points,
+  steals,
+  blocks,
+  trb,
+  orb,
+  drb,
+  fg,
+  fga,
+  fgp,
+  tp,
+  tpa,
+  tpp,
 }
