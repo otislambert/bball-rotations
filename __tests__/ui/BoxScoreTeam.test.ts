@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/svelte";
+import { render, screen, fireEvent, act } from "@testing-library/svelte";
 import { mockBS } from "../../__mocks__/data/BSwasdet102522.data";
 import BoxScoreTeam from "$components/boxscoreTeam.svelte";
 
@@ -24,7 +24,73 @@ describe("Box Score Team Rendering", () => {
     it("renders a team table div", () => {
       expect(screen.getByTestId("bs-team-table")).toBeDefined();
     });
+    it("renders an expand button", () => {
+      expect(screen.getByTestId("bs-team-expand-btn")).toBeDefined();
+    });
   });
+
+  describe("Box Score Expand Button", () => {
+    beforeEach(() => {
+      render(BoxScoreTeam, { props: { team } });
+    });
+
+    it("renders the button as a button element", () => {
+      expect(screen.getByTestId("bs-team-expand-btn").nodeName).toBe("BUTTON");
+    });
+    it("renders the correct text on load", () => {
+      expect(screen.getByTestId("bs-team-expand-btn").textContent).toBe(
+        "Expand"
+      );
+    });
+    it("renders the correct text after click", () => {
+      const btn = screen.getByTestId("bs-team-expand-btn");
+
+      // checks for text content before clicking
+      expect(btn.textContent).toBe("Expand");
+
+      // fires click
+      act(async () => {
+        await fireEvent.click(btn);
+
+        // checks again for text content
+        expect(btn.textContent).toBe("Hide");
+      });
+    });
+
+    it("displays the correct number of players when not expanded", () => {
+      const btn = screen.getByTestId("bs-team-expand-btn");
+
+      // checks that expanded is false
+      expect(btn.textContent).toBe("Expand");
+
+      // checks for the amount of players
+      expect(screen.getAllByTestId("bs-player-row").length).toBe(5);
+    });
+
+    it("displays more players when expanded", () => {
+      const btn = screen.getByTestId("bs-team-expand-btn");
+
+      //checks that only five players are initially shown.
+      expect(screen.getAllByTestId("bs-player-row").length).toBe(5);
+
+      //fires click
+      act(async () => {
+        await fireEvent.click(btn);
+
+        // checks again for text content
+        expect(screen.getAllByTestId("bs-player-row").length).toBeGreaterThan(
+          6
+        );
+      });
+    });
+
+    it("has the correct class", () => {
+      expect(screen.getByTestId("bs-team-expand-btn").classList).toContain([
+        "expand-btn",
+      ]);
+    });
+  });
+
   describe("Box Score Team Table", () => {
     beforeEach(() => {
       render(BoxScoreTeam, { props: { team } });
