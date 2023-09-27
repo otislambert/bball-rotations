@@ -57,6 +57,6 @@ function createGPOStore() {
     setExpanded,
     reset,
   };
-}
+};
 
 export const gamePageOptions = createGPOStore();

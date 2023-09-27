@@ -34,6 +34,14 @@ describe("Box Score Team Rendering", () => {
       render(BoxScoreTeam, { props: { team } });
     });
 
+    afterEach(() => {
+      const reset = screen.getByTestId("bs-team-reset-btn");
+
+      act(async () => {
+        await fireEvent.click(reset);
+      });
+    });
+
     it("renders the button as a button element", () => {
       expect(screen.getByTestId("bs-team-expand-btn").nodeName).toBe("BUTTON");
     });
