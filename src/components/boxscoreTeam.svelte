@@ -3,7 +3,7 @@
   import { sortPlayers } from "$lib/boxscoreParsing";
   import { formatMinutes, formatPercentage } from "$lib/statFormatting";
   import type { Team } from "$types/nbacdn";
-  import { SortValues } from "$types/types";
+  import { SortValues } from "$types/enums";
   import { gamePageOptions } from "../stores/gamePageOptions";
 
   // Props

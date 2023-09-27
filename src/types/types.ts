@@ -1,11 +1,14 @@
 import type { ScheduleGame } from "./nbacdn";
 
+// parameters
 export interface Params {
   params: {
     slug: string;
   };
 }
 
+// game page data types
+// passed from game page server file
 export interface GameDatePageData {
   props: {
     date: string;
@@ -13,6 +16,8 @@ export interface GameDatePageData {
   };
 }
 
+// interface for game page options 
+// set from game page options store
 export interface GPOData {
   sort: SortValues;
   asc: boolean;
@@ -20,19 +25,3 @@ export interface GPOData {
   expanded: boolean;
 }
 
-export enum SortValues {
-  default,
-  minutes,
-  points,
-  steals,
-  blocks,
-  trb,
-  orb,
-  drb,
-  fg,
-  fga,
-  fgp,
-  tp,
-  tpa,
-  tpp,
-}
