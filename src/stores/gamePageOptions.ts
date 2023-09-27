@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
-import { SortValues, GPOData } from "$types/types";
+import { SortValues } from "$types/types";
+import type { GPOData } from "$types/types";
 
 export const initialOptions = {
   sort: SortValues.default,

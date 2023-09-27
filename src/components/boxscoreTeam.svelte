@@ -11,8 +11,9 @@
 
   // Component State
   let expanded: boolean = false;
+  let sortVal: SortValues = SortValues.default;
 
-  $: players = sortPlayers(team.players!, $gamePageOptions);
+  $: players = sortPlayers(team.players!, sortVal, expanded);
 </script>
 
 <!-- TODO: hide/shrink boxscore -->
@@ -75,6 +76,7 @@
       </tbody>
     </table>
   </div>
+
   <!-- TODO: add animations when expanding box score -->
   <div class="flex row btn-container">
     <button

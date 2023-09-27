@@ -11,14 +11,30 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "$lib": ["src/lib"],
-      "$lib/*": ["src/lib/*"],
-      "$components": ["src/components"],
-      "$components/*": ["src/components/*"],
-      "$types": ["src/types"],
-      "$types/*": ["src/types/*"],
-      "$styles": ["src/styles"],
-      "$styles/*": ["src/styles/*"]
+      "$lib": [
+        "src/lib"
+      ],
+      "$lib/*": [
+        "src/lib/*"
+      ],
+      "$components": [
+        "src/components"
+      ],
+      "$components/*": [
+        "src/components/*"
+      ],
+      "$types": [
+        "src/types"
+      ],
+      "$types/*": [
+        "src/types/*"
+      ],
+      "$styles": [
+        "src/styles"
+      ],
+      "$styles/*": [
+        "src/styles/*"
+      ]
     },
     "include": [
       "../__tests__/**/*.js",

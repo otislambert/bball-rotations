@@ -14,11 +14,9 @@ function getActivePlayers(players: Player[]): Player[] {
 // TODO: add tests for sort Players functions
 function sortPlayers(
   players: Player[],
+  sortVal: SortValues,
   expanded: boolean = false,
-  options: GPOData = initialOptions
 ): Player[] {
-  let sortVal = options.sort;
-
   let result: Player[] = [];
 
   switch (sortVal) {
