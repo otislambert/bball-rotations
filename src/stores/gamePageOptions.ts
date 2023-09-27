@@ -2,14 +2,15 @@ import { writable } from "svelte/store";
 import { SortValues } from "$types/enums";
 import type { GPOData } from "$types/types";
 
-export const initialOptions = {
+export const initialOptions: GPOData = {
   sort: SortValues.default,
   asc: true,
   showInactive: false,
+  expanded: false,
 };
 
 function createGPOStore() {
-  const { subscribe, update } = writable<GPOData>(initialOptions);
+  const { subscribe, set, update } = writable<GPOData>(initialOptions);
 
   const setSort = (val: SortValues) => {
     update((n) => {
@@ -32,11 +33,29 @@ function createGPOStore() {
     });
   };
 
+  const setExpanded = () => {
+    update((n) => {
+      n.expanded = !n.expanded;
+      return n;
+    })
+  };
+
+  const reset = () => {
+    set({
+      sort: SortValues.default,
+      asc: true,
+      showInactive: false,
+      expanded: false,
+    });
+  };
+
   return {
     subscribe,
     setSort,
     setAsc,
     setShowInactive,
+    setExpanded,
+    reset,
   };
 }
 

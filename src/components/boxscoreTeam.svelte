@@ -2,8 +2,8 @@
   // Imports
   import { sortPlayers } from "$lib/boxscoreParsing";
   import { formatMinutes, formatPercentage } from "$lib/statFormatting";
-  import type { Team } from "$types/nbacdn";
   import { SortValues } from "$types/enums";
+  import type { Team } from "$types/nbacdn";
   import { gamePageOptions } from "../stores/gamePageOptions";
 
   // Props
@@ -13,7 +13,7 @@
   let expanded: boolean = false;
   let sortVal: SortValues = SortValues.default;
 
-  $: players = sortPlayers(team.players!, sortVal, expanded);
+  $: players = sortPlayers(team.players!, sortVal, $gamePageOptions.expanded);
 </script>
 
 <!-- TODO: hide/shrink boxscore -->
@@ -82,14 +82,14 @@
     <button
       class="expand-btn btn"
       data-testid="bs-team-expand-btn"
-      on:click={() => (expanded = !expanded)}
-      >{expanded ? "Hide" : "Expand"}</button
+      on:click={() => gamePageOptions.setExpanded()}
+      >{$gamePageOptions.expanded ? "Hide" : "Expand"}</button
     >
     <!-- TODO: add tests for reset btn -->
     <button
       class="btn"
       data-testid="bs-team-reset-btn"
-      on:click={() => console.log("Reset")}>Reset</button
+      on:click={() => gamePageOptions.reset()}>Reset</button
     >
   </div>
 </div>

@@ -1,7 +1,6 @@
 import type { Player } from "$types/nbacdn";
 import { SortValues } from "$types/enums";
 import type { GPOData } from "$types/types";
-import { initialOptions } from "../stores/gamePageOptions";
 
 // Player filtering
 
