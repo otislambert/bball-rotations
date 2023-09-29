@@ -30,7 +30,9 @@
           <th on:click={() => gamePageOptions.setSort(SortValues.default)}
             >Name</th
           >
-          <th>Minutes</th>
+          <th on:click={() => gamePageOptions.setSort(SortValues.minutes)}
+            >Minutes</th
+          >
           <th on:click={() => gamePageOptions.setSort(SortValues.points)}
             >Points</th
           >

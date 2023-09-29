@@ -1,6 +1,7 @@
 import type { Player } from "$types/nbacdn";
 import { SortValues } from "$types/enums";
 import type { GPOData } from "$types/types";
+import { getTotalSeconds } from "./statParsing";
 
 // Player filtering
 
@@ -26,6 +27,10 @@ function sortPlayers(
     case SortValues.points:
       result = sortPlayersByPoints(players);
       break;
+
+    case SortValues.minutes:
+      result = SortPlayersByMinutes(players);
+      break;
   }
 
   if (!expanded) {
@@ -35,8 +40,8 @@ function sortPlayers(
   return result;
 }
 
-function SortPlayersByMinutes() {
-  // TODO: create function for getting total minutes / seconds
+function SortPlayersByMinutes(players: Player[]): Player[] {
+  return players.sort((a, b) => getTotalSeconds(b.statistics.minutes) - getTotalSeconds(a.statistics.minutes));
 }
 
 function sortPlayersByPoints(players: Player[]): Player[] {
