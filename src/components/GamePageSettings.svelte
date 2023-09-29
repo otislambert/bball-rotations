@@ -37,7 +37,10 @@
   </label>
   <label data-testid="bs-settings-sort-label">
     <span>Sort by: </span>
-    <select bind:value={$gamePageOptions.sort}>
+    <select
+      data-testid="bs-settings-sort-select"
+      bind:value={$gamePageOptions.sort}
+    >
       <option value={SortValues.default}>Default</option>
       <option value={SortValues.minutes}>Minutes</option>
       <option value={SortValues.points}>Points</option>
@@ -45,4 +48,10 @@
   </label>
 </div>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .settings {
+    justify-content: space-around;
+    width: fit-content;
+    gap: 1em;
+  }
+</style>
