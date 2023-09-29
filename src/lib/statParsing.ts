@@ -1,6 +1,10 @@
 import { getMinutes, getSeconds } from "$lib/statFormatting.ts";
 
 function getTotalSeconds(minutes: string): number {
-  const m = getMinutes(minutes);
-  const s = getMinutes(minutes);
+  const m = Number(getMinutes(minutes));
+  const s = Number(getSeconds(minutes));
+  
+  return (m * 60) + s;
 }
+
+export { getTotalSeconds }
