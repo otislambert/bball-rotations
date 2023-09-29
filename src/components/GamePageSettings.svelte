@@ -10,7 +10,7 @@
 <!-- TODO: create tests for game page settings -->
 
 <div data-testid="bs-settings-container" class="flex row settings">
-  <label>
+  <label data-testid="bs-settings-expanded-label">
     <span data-testid="bs-settings-expanded-text">Show More</span>
     <input
       data-testid="bs-settings-expanded-box"
@@ -21,7 +21,7 @@
       }}
     />
   </label>
-  <label>
+  <label data-testid="bs-settings-dnp-label">
     <span data-testid="bs-settings-dnp-text">Show DNPs</span>
     <input
       data-testid="bs-settings-dnp-box"
