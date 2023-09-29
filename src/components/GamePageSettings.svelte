@@ -14,6 +14,7 @@
 <div data-testid="bs-settings-container" class="flex row settings">
   <label data-testid="bs-settings-expanded-label">
     <span data-testid="bs-settings-expanded-text">Show More</span>
+    <!-- TODO: remove on:click statement -->
     <input
       data-testid="bs-settings-expanded-box"
       type="checkbox"
@@ -28,22 +29,23 @@
     <input
       data-testid="bs-settings-dnp-box"
       type="checkbox"
-      bind:checked={showDNPs}
+      bind:checked={$gamePageOptions.showInactive}
       disabled={!expanded}
-      on:click={() => {
-        gamePageOptions.setShowInactive();
-      }}
     />
   </label>
   <label data-testid="bs-settings-sort-label">
     <span>Sort by: </span>
     <select
       data-testid="bs-settings-sort-select"
-      bind:value={$gamePageOptions.sort}
+      value={$gamePageOptions.sort}
+      on:change={(e) => {
+        gamePageOptions.setSort(SortValues[e.currentTarget.value]);
+      }}
     >
       <option value={SortValues.default}>Default</option>
       <option value={SortValues.minutes}>Minutes</option>
       <option value={SortValues.points}>Points</option>
+      <!-- TODO: add additional options -->
     </select>
   </label>
 </div>

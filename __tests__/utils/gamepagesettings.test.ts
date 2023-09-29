@@ -46,7 +46,7 @@ describe("Box Score Settings", () => {
       expect(box.nodeName).toBe("INPUT")
       expect(box).toHaveAttribute("type", "checkbox");
     });
-    it.todo("renders a 'Sort by' select", () => {
+    it("renders a 'Sort by' select", () => {
       const select = screen.getByTestId("bs-settings-sort-select");
       expect(select).toBeDefined();
       expect(select.nodeName).toBe("SELECT");

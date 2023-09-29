@@ -1,6 +1,5 @@
 import type { Player } from "$types/nbacdn";
 import { SortValues } from "$types/enums";
-import type { GPOData } from "$types/types";
 import { getTotalSeconds } from "./statParsing";
 
 // Player filtering
@@ -17,6 +16,8 @@ function sortPlayers(
   sortVal: SortValues,
   expanded: boolean = false,
 ): Player[] {
+  console.log(`Sorting players by ${sortVal}`);
+
   let result: Player[] = [];
 
   switch (sortVal) {

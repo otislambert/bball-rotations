@@ -2,7 +2,6 @@
   // Imports
   import { sortPlayers } from "$lib/boxscoreParsing";
   import { formatMinutes, formatPercentage } from "$lib/statFormatting";
-  import { SortValues } from "$types/enums";
   import type { Team } from "$types/nbacdn";
   import { gamePageOptions } from "../stores/gamePageOptions";
 
@@ -27,15 +26,9 @@
     <table data-testid="bs-team-table">
       <thead data-testid="bs-team-table-head">
         <tr data-testid="bs-team-table-head-row">
-          <th on:click={() => gamePageOptions.setSort(SortValues.default)}
-            >Name</th
-          >
-          <th on:click={() => gamePageOptions.setSort(SortValues.minutes)}
-            >Minutes</th
-          >
-          <th on:click={() => gamePageOptions.setSort(SortValues.points)}
-            >Points</th
-          >
+          <th>Name</th>
+          <th>Minutes</th>
+          <th>Points</th>
           <th>Steals</th>
           <th>Blocks</th>
           <th>tRb</th>

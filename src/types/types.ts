@@ -1,4 +1,5 @@
 import type { ScheduleGame } from "./nbacdn";
+import type { SortValues } from "./enums";
 
 // parameters
 export interface Params {
