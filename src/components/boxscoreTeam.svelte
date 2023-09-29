@@ -9,14 +9,13 @@
   // Props
   export let team: Team;
 
-  // Component State
-  let expanded: boolean = false;
-  let sortVal: SortValues = SortValues.default;
-
-  $: players = sortPlayers(team.players!, sortVal, $gamePageOptions.expanded);
+  $: players = sortPlayers(
+    team.players!,
+    $gamePageOptions.sort,
+    $gamePageOptions.expanded
+  );
 </script>
 
-<!-- TODO: hide/shrink boxscore -->
 <div data-testid="bs-team-component" class="flex column container">
   <div class="header">
     <h3 data-testid="bs-team-header-text">
@@ -78,20 +77,6 @@
   </div>
 
   <!-- TODO: add animations when expanding box score -->
-  <div class="flex row btn-container">
-    <button
-      class="expand-btn btn"
-      data-testid="bs-team-expand-btn"
-      on:click={() => gamePageOptions.setExpanded()}
-      >{$gamePageOptions.expanded ? "Hide" : "Expand"}</button
-    >
-    <!-- TODO: add tests for reset btn -->
-    <button
-      class="btn"
-      data-testid="bs-team-reset-btn"
-      on:click={() => gamePageOptions.reset()}>Reset</button
-    >
-  </div>
 </div>
 
 <style lang="scss">
@@ -116,29 +101,6 @@
 
       .bs-player-name {
         width: 10%;
-      }
-    }
-  }
-
-  .btn-container {
-    width: 100%;
-    justify-content: center;
-    gap: 2em;
-
-    .btn {
-      background-color: inherit;
-      font-size: 1.5em;
-      font-weight: 600;
-      transition: 200ms ease-in-out;
-      border: 2px solid black;
-      border-radius: 10px;
-      width: fit-content;
-      align-self: center;
-
-      &:hover {
-        color: orange;
-        border-color: orange;
-        transform: scale(1.1);
       }
     }
   }

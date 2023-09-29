@@ -2,6 +2,7 @@
   // imports
   import BoxscoreTeam from "./boxscoreTeam.svelte";
   import type { BoxScore } from "$types/nbacdn";
+  import GamePageSettings from "./GamePageSettings.svelte";
   import { gamePageOptions } from "../stores/gamePageOptions";
 
   // props
@@ -15,33 +16,7 @@
   <div class="header">
     <h2 data-testid="bs-header-text">Boxscore</h2>
   </div>
-  <!-- TODO: move settings to its own component -->
-  <div class="settings">
-    <label for="expanded">
-      Show All
-      <input
-        type="checkbox"
-        bind:checked={$gamePageOptions.expanded}
-        on:click={(e) => {
-          e.preventDefault();
-
-          gamePageOptions.setExpanded();
-        }}
-      />
-    </label>
-    <label for="DNPs">
-      Show DNPs
-      <input
-        type="checkbox"
-        bind:checked={$gamePageOptions.showInactive}
-        on:click={(e) => {
-          e.preventDefault();
-
-          gamePageOptions.setShowInactive();
-        }}
-      />
-    </label>
-  </div>
+  <GamePageSettings />
   <div class="flex column boxscores">
     <BoxscoreTeam team={awayTeam} />
     <BoxscoreTeam team={homeTeam} />
