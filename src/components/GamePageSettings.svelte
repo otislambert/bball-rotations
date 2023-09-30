@@ -2,11 +2,7 @@
 
 <script lang="ts">
   import { SortValues } from "$types/enums";
-  import { gamePageOptions } from "../stores/gamePageOptions";
-
-  $: expanded = $gamePageOptions.expanded;
-  $: showDNPs = $gamePageOptions.showInactive;
-  $: sort = $gamePageOptions.sort;
+  import { sortMethod, expanded, showDNPs } from "$stores/settings";
 </script>
 
 <!-- TODO: create tests for game page settings -->
@@ -18,10 +14,7 @@
     <input
       data-testid="bs-settings-expanded-box"
       type="checkbox"
-      bind:checked={expanded}
-      on:click={() => {
-        gamePageOptions.setExpanded();
-      }}
+      bind:checked={$expanded}
     />
   </label>
   <label data-testid="bs-settings-dnp-label">
@@ -29,19 +22,13 @@
     <input
       data-testid="bs-settings-dnp-box"
       type="checkbox"
-      bind:checked={$gamePageOptions.showInactive}
+      bind:checked={$showDNPs}
       disabled={!expanded}
     />
   </label>
   <label data-testid="bs-settings-sort-label">
     <span>Sort by: </span>
-    <select
-      data-testid="bs-settings-sort-select"
-      value={$gamePageOptions.sort}
-      on:change={(e) => {
-        gamePageOptions.setSort(SortValues[e.currentTarget.value]);
-      }}
-    >
+    <select data-testid="bs-settings-sort-select" bind:value={$sortMethod}>
       <option value={SortValues.default}>Default</option>
       <option value={SortValues.minutes}>Minutes</option>
       <option value={SortValues.points}>Points</option>

@@ -3,16 +3,12 @@
   import { sortPlayers } from "$lib/boxscoreParsing";
   import { formatMinutes, formatPercentage } from "$lib/statFormatting";
   import type { Team } from "$types/nbacdn";
-  import { gamePageOptions } from "../stores/gamePageOptions";
+  import { sortMethod, expanded, showDNPs } from "$stores/settings";
 
   // Props
   export let team: Team;
 
-  $: players = sortPlayers(
-    team.players!,
-    $gamePageOptions.sort,
-    $gamePageOptions.expanded
-  );
+  $: players = sortPlayers(team.players!, $sortMethod, $expanded);
 </script>
 
 <div data-testid="bs-team-component" class="flex column container">

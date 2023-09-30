@@ -3,7 +3,6 @@
   import BoxscoreTeam from "./boxscoreTeam.svelte";
   import type { BoxScore } from "$types/nbacdn";
   import GamePageSettings from "./GamePageSettings.svelte";
-  import { gamePageOptions } from "../stores/gamePageOptions";
 
   // props
   export let boxScore: BoxScore;
