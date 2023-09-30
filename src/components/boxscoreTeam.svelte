@@ -8,7 +8,7 @@
   // Props
   export let team: Team;
 
-  $: players = sortPlayers(team.players!, $sortMethod, $expanded);
+  $: players = sortPlayers(team.players!, $sortMethod, $expanded, $showDNPs);
 </script>
 
 <div data-testid="bs-team-component" class="flex column container">

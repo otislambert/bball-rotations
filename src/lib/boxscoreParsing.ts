@@ -15,6 +15,7 @@ function sortPlayers(
   players: Player[],
   sortVal: SortValues,
   expanded: boolean = false,
+  showDNPs: boolean = false,
 ): Player[] {
   console.log(`Sorting players by ${sortVal}`);
 
@@ -36,6 +37,10 @@ function sortPlayers(
 
   if (!expanded) {
     result = result.slice(0, 5);
+  };
+
+  if (!showDNPs) {
+    result = result.filter(p => getTotalSeconds(p.statistics.minutes) !== 0);
   }
 
   return result;
