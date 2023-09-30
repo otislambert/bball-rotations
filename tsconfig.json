@@ -34,6 +34,12 @@
       ],
       "$styles/*": [
         "src/styles/*"
+      ],
+      "$stores": [
+        "src/stores"
+      ],
+      "$stores/*": [
+        "src/stores/*"
       ]
     },
     "include": [

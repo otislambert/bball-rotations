@@ -16,6 +16,7 @@ export default defineConfig({
       $components: path.resolve(__dirname, "./src/components/"),
       $styles: path.resolve(__dirname, "./src/styles/"),
       $types: path.resolve(__dirname, "./src/types/"),
+      $stores: path.resolve(__dirname, "./src/stores/"),
     },
   },
 });
