@@ -29,9 +29,11 @@
   <label data-testid="bs-settings-sort-label">
     <span>Sort by: </span>
     <select data-testid="bs-settings-sort-select" bind:value={$sortMethod}>
+      <!-- TODO: fix default sort -->
       <option value={SortValues.default}>Default</option>
       <option value={SortValues.minutes}>Minutes</option>
       <option value={SortValues.points}>Points</option>
+      <option value={SortValues.steals}>Steals</option>
       <!-- TODO: add additional options -->
     </select>
   </label>
