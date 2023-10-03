@@ -29,12 +29,20 @@
   <label data-testid="bs-settings-sort-label">
     <span>Sort by: </span>
     <select data-testid="bs-settings-sort-select" bind:value={$sortMethod}>
-      <!-- TODO: fix default sort -->
       <option value={SortValues.default}>Default</option>
       <option value={SortValues.minutes}>Minutes</option>
       <option value={SortValues.points}>Points</option>
       <option value={SortValues.steals}>Steals</option>
-      <!-- TODO: add additional options -->
+      <option value={SortValues.blocks}>Blocks</option>
+      <option value={SortValues.trb}>Rebounds</option>
+      <option value={SortValues.orb}>Rebounds (offensive)</option>
+      <option value={SortValues.drb}>Rebounds (defensive)</option>
+      <option value={SortValues.fg}>Field Goals</option>
+      <option value={SortValues.fga}>Attempted Field Goals</option>
+      <option value={SortValues.fgp}>Field Goal Percentage</option>
+      <option value={SortValues.tp}>Three Pointers</option>
+      <option value={SortValues.tpa}>Three Point Attempts</option>
+      <option value={SortValues.tpp}>Three Point Percentage</option>
     </select>
   </label>
 </div>
