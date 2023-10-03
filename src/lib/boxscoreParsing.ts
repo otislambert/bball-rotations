@@ -24,7 +24,7 @@ function sortPlayers(
 
   switch (sortVal) {
     case SortValues.default:
-      result = players;
+      result = sortPlayersByDefault(players);
       break;
 
     case SortValues.points:
@@ -92,6 +92,10 @@ function sortPlayers(
 }
 
 // Sorting Methods
+function sortPlayersByDefault(players: Player[]): Player[] {
+  return players.sort((a, b) => a.order - b.order);
+}
+
 function sortPlayersByMinutes(players: Player[]): Player[] {
   return players.sort((a, b) => getTotalSeconds(b.statistics.minutes) - getTotalSeconds(a.statistics.minutes));
 }

@@ -1,4 +1,4 @@
-import { getActivePlayers } from "$lib/boxscoreParsing.ts";
+import { getActivePlayers, sortPlayers } from "$lib/boxscoreParsing.ts";
 import { mockBS } from "../../__mocks__/data/BSwasdet102522.data";
 
 const team = mockBS.awayTeam;
