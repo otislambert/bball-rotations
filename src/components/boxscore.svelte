@@ -9,7 +9,6 @@
 
   // destructures teams from boxscore
   const { awayTeam, homeTeam } = boxScore;
-  console.log(awayTeam);
 </script>
 
 <div data-testid="bs-component" class="flex column container">

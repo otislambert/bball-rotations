@@ -2,7 +2,7 @@
 
 <script lang="ts">
   import { SortValues } from "$types/enums";
-  import { sortMethod, expanded, showDNPs } from "$stores/settings";
+  import { sortMethod, expanded, showDNPs, ascending } from "$stores/settings";
 </script>
 
 <!-- TODO: create tests for game page settings -->
@@ -10,7 +10,6 @@
 <div data-testid="bs-settings-container" class="flex row settings">
   <label data-testid="bs-settings-expanded-label">
     <span data-testid="bs-settings-expanded-text">Show More</span>
-    <!-- TODO: remove on:click statement -->
     <input
       data-testid="bs-settings-expanded-box"
       type="checkbox"
@@ -24,6 +23,14 @@
       type="checkbox"
       bind:checked={$showDNPs}
       disabled={!expanded}
+    />
+  </label>
+  <label data-testid="bs-settings-ascending-label">
+    <span data-testid="bs-settings-ascending-text">Ascending</span>
+    <input
+      data-testid="bs-settings-ascending-box"
+      type="checkbox"
+      bind:checked={$ascending}
     />
   </label>
   <label data-testid="bs-settings-sort-label">

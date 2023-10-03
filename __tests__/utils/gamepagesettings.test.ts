@@ -26,6 +26,12 @@ describe("Box Score Settings", () => {
       expect(label.textContent).toContain("Show DNPs");
       expect(label.nodeName).toBe("LABEL");
     });
+    it("renders an 'ascending' label", () => {
+      const label = screen.getByTestId("bs-settings-ascending-label")
+      expect(label).toBeDefined();
+      expect(label.textContent).toContain("Ascending")
+      expect(label.nodeName).toBe("LABEL");
+    });
     it("renders a 'sort by' label", () => {
       const label = screen.getByTestId("bs-settings-sort-label");
       expect(label).toBeDefined();
@@ -46,6 +52,13 @@ describe("Box Score Settings", () => {
       expect(box.nodeName).toBe("INPUT")
       expect(box).toHaveAttribute("type", "checkbox");
     });
+    it("renders an 'ascending' checkbox", () => {
+      const box = screen.getByTestId("bs-settings-ascending-box");
+      expect(box).toBeDefined();
+      expect(box.nodeName).toBe("INPUT")
+      expect(box).toHaveAttribute("type", "checkbox");
+
+    })
     it("renders a 'Sort by' select", () => {
       const select = screen.getByTestId("bs-settings-sort-select");
       expect(select).toBeDefined();

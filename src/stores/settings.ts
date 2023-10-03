@@ -4,5 +4,6 @@ import { SortValues } from "$types/enums";
 const sortMethod = writable<SortValues>(SortValues.default);
 const showDNPs = writable<boolean>(false);
 const expanded = writable<boolean>(false);
+const ascending = writable<boolean>(false);
 
-export { sortMethod, showDNPs, expanded };
+export { sortMethod, showDNPs, expanded, ascending };
