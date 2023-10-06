@@ -19,6 +19,7 @@ function sortPlayers(
   sortVal: SortValues,
   expanded: boolean = false,
   showDNPs: boolean = false,
+  ascending: boolean = false,
 ): Player[] {
   let result: Player[] = [];
 
@@ -86,6 +87,10 @@ function sortPlayers(
 
   if (!showDNPs) {
     result = filterDNPs(result);
+  }
+
+  if (ascending) {
+    result = result.reverse();
   }
 
   return result;

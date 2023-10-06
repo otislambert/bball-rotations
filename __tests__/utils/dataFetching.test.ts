@@ -1,14 +1,32 @@
-import { fetchSchedule } from '$lib/server/nbaDataFetching.ts';
+import { fetchSchedule, fetchBoxScore } from '$lib/server/nbaDataFetching.ts';
+import { Boxscore, Schedule } from '$types/nbacdn'
 
 describe("fetch schedule", () => {
+  let result;
+  beforeEach(async () => {
+    result = await fetchSchedule();
+  })
   it("fetches something", async () => {
-    const result = await fetchSchedule();
     expect(result).toBeDefined();
   });
 
-  it.todo("fetches a schedule", () => {
-    // TODO: add schedule
+  it("fetches a schedule", async () => {
+    expectTypeOf(result).toEqualTypeOf<Schedule>();
   });
 });
 
-// TODO: create fetch box score tests
+describe("fetch box score", () => {
+  let result;
+
+  beforeEach(async () => {
+    result = await fetchBoxScore("0022200052");
+  });
+
+  it("fetches an object", async () => {
+    expect(result).toBeDefined();
+  });
+
+  it("fetches a box score", async () => {
+    expectTypeOf(result).toEqualTypeOf<Boxscore>();
+  });
+});

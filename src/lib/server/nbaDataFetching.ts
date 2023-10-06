@@ -16,6 +16,8 @@ async function fetchSchedule(): Promise<LeagueSchedule> {
 
 // TODO: create tests for fetchBoxScore
 async function fetchBoxScore(gameId: string): Promise<BoxScore> {
+  if (!gameId) throw new Error("No Game ID Provided.")
+
   const url = `https://cdn.nba.com/static/json/liveData/boxscore/boxscore_${gameId}.json`;
 
   const res = await fetch(url, { cache: "no-cache" });
