@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { BoxScore } from "$types/nbacdn";
+  import type { BoxScore, PlayByPlayItem } from "$types/nbacdn";
   import GamePageHeader from "$components/GamePageHeader.svelte";
   import Boxscore from "$components/boxscore.svelte";
   import GraphContainer from "$components/GraphContainer.svelte";
@@ -8,6 +8,7 @@
     props: {
       gameId: string;
       boxScore: BoxScore;
+      pbp: PlayByPlayItem[];
     };
   }
 
