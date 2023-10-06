@@ -15,13 +15,14 @@
   export let data: PageLoadData;
 
   const boxScore = data.props.boxScore;
+  const pbp = data.props.pbp;
 </script>
 
 <main>
   {#if boxScore}
     <GamePageHeader {boxScore} />
     <Boxscore {boxScore} />
-    <GraphContainer />
+    <GraphContainer {pbp} />
   {/if}
 </main>
 
