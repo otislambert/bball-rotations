@@ -1,5 +1,5 @@
-import { fetchSchedule, fetchBoxScore } from '$lib/server/nbaDataFetching.ts';
-import { Boxscore, Schedule } from '$types/nbacdn'
+import { fetchPlayByPlay, fetchSchedule, fetchBoxScore } from '$lib/server/nbaDataFetching.ts';
+import { Boxscore, PlayByPlayItem, Schedule } from '$types/nbacdn'
 
 describe("fetch schedule", () => {
   let result;
@@ -30,3 +30,19 @@ describe("fetch box score", () => {
     expectTypeOf(result).toEqualTypeOf<Boxscore>();
   });
 });
+
+describe("fetch play by play", () => {
+  let result;
+
+  beforeEach(async () => {
+    result = await fetchPlayByPlay("0022200052");
+  });
+
+  it("fetches an object", () => {
+    expect(result).toBeDefined();
+  });
+
+  it("fetches a list of play by play items", () => {
+    expectTypeOf(result).toEqualTypeOf<PlayByPlayItem[]>();
+  })
+})
