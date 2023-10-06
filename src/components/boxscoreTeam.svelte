@@ -77,6 +77,11 @@
 </div>
 
 <style lang="scss">
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
   .header {
     h3 {
       font-weight: 400;
