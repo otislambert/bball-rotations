@@ -2,6 +2,7 @@
   import type { BoxScore } from "$types/nbacdn";
   import GamePageHeader from "$components/GamePageHeader.svelte";
   import Boxscore from "$components/boxscore.svelte";
+  import GraphContainer from "$components/GraphContainer.svelte";
 
   interface PageLoadData {
     props: {
@@ -19,6 +20,7 @@
   {#if boxScore}
     <GamePageHeader {boxScore} />
     <Boxscore {boxScore} />
+    <GraphContainer />
   {/if}
 </main>
 

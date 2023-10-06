@@ -23,7 +23,7 @@ describe("Box Score Component", () => {
     });
 
     it("header has the correct text", () => {
-      expect(screen.getByTestId("bs-header-text").textContent).toBe("Boxscore");
+      expect(screen.getByTestId("bs-header-text").textContent).toBe("Stats");
     });
   });
 });
