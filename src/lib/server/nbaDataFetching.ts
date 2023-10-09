@@ -1,6 +1,5 @@
 import type { PlayByPlayItem, LeagueSchedule, BoxScore } from "$types/nbacdn";
 
-// TODO: create tests for fetchSchedule
 async function fetchSchedule(): Promise<LeagueSchedule> {
   const url =
     "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json";
@@ -14,7 +13,6 @@ async function fetchSchedule(): Promise<LeagueSchedule> {
   return schedule;
 }
 
-// TODO: create tests for fetchBoxScore
 async function fetchBoxScore(gameId: string): Promise<BoxScore> {
   if (!gameId) throw new Error("No Game ID Provided.");
 

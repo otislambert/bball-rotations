@@ -11,7 +11,7 @@
   const { awayTeam, homeTeam } = boxScore;
 </script>
 
-<div data-testid="bs-component" class="flex column container">
+<div data-testid="bs-component" class="flex column root-container">
   <div class="header">
     <h2 data-testid="bs-header-text">Stats</h2>
   </div>
@@ -25,13 +25,6 @@
 
 <style lang="scss">
   .container {
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 2em;
-    margin: 1em;
-    min-width: 80%;
-    gap: 1em;
-
     .header {
       width: 100%;
       text-align: center;
